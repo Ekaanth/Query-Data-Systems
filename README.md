@@ -1,3 +1,3 @@
 # Query-Data-Systems
 
-update verson if qds
+update verson of qds
