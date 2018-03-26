@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.qds.sa.util.constant.ActiveStatus;
+
 @Entity
 @Table(name="forgotaccess")
 public class ForgotAccess {
@@ -20,6 +22,8 @@ public class ForgotAccess {
 	private String umobilenumber;
 	private String uipaddress;
 	private Date sentdate;
+	private ActiveStatus ustatus;
+	
 	public Long getId() {
 		return id;
 	}
@@ -61,6 +65,12 @@ public class ForgotAccess {
 	}
 	public void setSentdate(Date sentdate) {
 		this.sentdate = sentdate;
+	}
+	public ActiveStatus getUstatus() {
+		return ustatus;
+	}
+	public void setUstatus(ActiveStatus ustatus) {
+		this.ustatus = ustatus;
 	}
 	
 	

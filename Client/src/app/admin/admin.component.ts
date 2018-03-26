@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class AdminComponent implements OnInit {
 
   public adduser: FormGroup;
+  public forgotpassword: FormGroup;
   userservice = [];
   public inactiveRequestedUser;
   items = ['Data Support', 'MIS' , 'Analytics' , 'MR'];
@@ -23,6 +24,13 @@ export class AdminComponent implements OnInit {
       uqueryid: [null,  Validators.compose([Validators.required])],
       upassword: [null ,  Validators.compose([Validators.required])],
      // service : this.fb.array([])
+    });
+
+
+    this.forgotpassword = this.fb.group({
+      uid: [],
+      uqueryid: [null,  Validators.compose([Validators.required])],
+      upassword: [null ,  Validators.compose([Validators.required])],
     });
   }
 
@@ -73,5 +81,10 @@ this.adduser.enable();
         this.userservice.splice(index , 1);
      }
     }
+  }
+
+
+  forgotpasswordSubmit(forgotpassword) {
+    console.log(forgotpassword);
   }
 }

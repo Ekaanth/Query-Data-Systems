@@ -58,9 +58,12 @@
                         <!-- Service History -->
                         <div class="col-lg-3 col-md-4 col-sm-4 mb">
                             <div class="product-panel-2 pn" style="background: #fff;">
-                                <div class="badge badge-hot" style="background: #03A9F4;"><i class="fa fa-times" style="font-size: 34px;" aria-hidden="true"></i></div><br>
+                                <!-- <div class="badge badge-hot" style="background: #03A9F4;"><i class="fa fa-times" style="font-size: 34px;" aria-hidden="true"></i></div><br>
                                 <h4 class="mt" style="margin-left: 40px;">Disable/Enable</h4><br><br>
-                                <button class="btn btn-small btn-theme03" data-toggle="modal" href="userDisable.html#userDisable">User</button>
+                                <button class="btn btn-small btn-theme03" data-toggle="modal" href="userDisable.html#userDisable">User</button> -->
+                                <div class="badge badge-hot" style="background: #03A9F4;"><i class="fa fa-file-text" style="font-size: 34px;" aria-hidden="true"></i></div><br>
+                                <h3 class="mt" style="margin-left: 50px;">Forgot UN/PW</h3><br><br>
+                                <button class="btn btn-small btn-theme03" data-toggle="modal" href="userDisable.html#userDisable" (click)="getAlltheForgotList()">User</button>
                             </div>
                         </div>
                         <!-- /col-md-3 -->
@@ -89,8 +92,10 @@
                         <!-- Forgot UN/PW -->
                         <div class="col-lg-3 col-md-4 col-sm-4 mb">
                             <div class="product-panel-2 pn" style="background: #fff;">
-                                <div class="badge badge-hot" style="background: #03A9F4;"><i class="fa fa-file-text" style="font-size: 34px;" aria-hidden="true"></i></div><br>
-                                <h3 class="mt" style="margin-left: 50px;">Forgot UN/PW</h3><br><br>
+                                <!-- <div class="badge badge-hot" style="background: #03A9F4;"><i class="fa fa-file-text" style="font-size: 34px;" aria-hidden="true"></i></div><br>
+                                <h3 class="mt" style="margin-left: 50px;">Forgot UN/PW</h3><br><br> -->
+                                <div class="badge badge-hot" style="background: #03A9F4;"><i class="fa fa-times" style="font-size: 34px;" aria-hidden="true"></i></div><br>
+                                <h4 class="mt" style="margin-left: 40px;">Disable/Enable</h4><br><br>
                                 <button class="btn btn-small btn-theme04">FULL REPORT</button>
                             </div>
                         </div>
@@ -121,7 +126,7 @@
                     <!-- Modal New User-->
                     <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="newUser" class="modal fade">
                         <div class="modal-dialog">
-                            <form [formGroup]="adduser" (ngSubmit)="addUserFormSubmit(adduser)">
+                            <form [formGroup]="forgotpassword" (ngSubmit)="forgotpassword(forgotpassword)">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -163,6 +168,47 @@
                     <!-- .end Modal New User-->
 
                     <!-- Modal Add/Delete Services-->
+                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="userDisable" class="modal fade">
+                        <div class="modal-dialog">
+                            <form [formGroup]="adduser" (ngSubmit)="addUserFormSubmit(adduser)">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title">Onboard New User</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Please Select User</p>
+                                        <select class="form-control" formControlName="uid">
+                                            <option  *ngFor="let user of inactiveRequestedUser" value="{{user.uid}}">{{user.uid}}</option>
+                                        </select><br>
+                                        <p>Create QueryID for User Login </p>
+                                        <input type="text" name="queryId" placeholder="Create QueryID" autocomplete="off" class="form-control placeholder-no-fix" formControlName="uqueryid"><br>
+                                        <p>Create Password for User Login </p>
+                                        <input type="text" name="password" placeholder="Create Password" autocomplete="off" class="form-control placeholder-no-fix" formControlName="upassword"><br>
+                                        <p>Please checks service :</p>
+                                        <ng-select [multiple]="true" [allowClear]="true" [items]="items" (selected)="selected($event)" (removed)="removed($event)" placeholder="Service Selected">
+                                        </ng-select>
+                                        <!-- <label class="checkbox-inline">
+                                            <input type="checkbox" id="inlineCheckbox1" value="datasupport">Data Support
+                                        </label>
+                                            <label class="checkbox-inline">
+                                            <input type="checkbox" id="inlineCheckbox2" value="mis">MIS
+                                        </label>
+                                            <label class="checkbox-inline">
+                                            <input type="checkbox" id="inlineCheckbox3" value="analytics">Analytics
+                                        </label>
+                                            <label class="checkbox-inline">
+                                            <input type="checkbox" id="inlineCheckbox3" value="mr">MR
+                                        </label> -->
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                                        <button class="btn btn-theme" type="submit" [disabled]="!adduser.valid">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                     <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="addService" class="modal fade">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -173,30 +219,30 @@
                                 <div class="modal-body">
                                     <p>Please Select User :</p>
                                     <select class="form-control">
-                  <option value="1">QDS - 1</option>
-                  <option value="2">QDS - 2</option>
-                  <option value="3">QDS - 3</option>
-                  <option value="4">QDS - 4</option>
-              </select><br>
+                                        <option value="1">QDS - 1</option>
+                                        <option value="2">QDS - 2</option>
+                                        <option value="3">QDS - 3</option>
+                                        <option value="4">QDS - 4</option>
+                                    </select><br>
                                     <p>Please Select Add & Delete Service :</p>
                                     <select class="form-control">
-                  <option value="addService">Add Service</option>
-                  <option value="deleteService">Delete Service</option>
-              </select>
+                                            <option value="addService">Add Service</option>
+                                            <option value="deleteService">Delete Service</option>
+                                        </select>
                                     <br>
                                     <p>Please checks service :</p>
                                     <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox1" value="option1">Data Support
-              </label>
+                                                        <input type="checkbox" id="inlineCheckbox1" value="option1">Data Support
+                                                    </label>
                                     <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox2" value="option2">MIS
-              </label>
+                                        <input type="checkbox" id="inlineCheckbox2" value="option2">MIS
+                                    </label>
                                     <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox3" value="option3">Analytics
-              </label>
+                                        <input type="checkbox" id="inlineCheckbox3" value="option3">Analytics
+                                    </label>
                                     <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox3" value="option4">MR
-              </label>
+                                        <input type="checkbox" id="inlineCheckbox3" value="option4">MR
+                                    </label>
                                 </div>
                                 <div class="modal-footer">
                                     <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
@@ -209,7 +255,7 @@
 
 
                     <!-- Modal Add/Delete Services-->
-                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="userDisable" class="modal fade">
+                    <!-- <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="userDisable" class="modal fade">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -219,16 +265,16 @@
                                 <div class="modal-body">
                                     <p>Please Select User :</p>
                                     <select class="form-control">
-                  <option value="1">QDS - 1</option>
-                  <option value="2">QDS - 2</option>
-                  <option value="3">QDS - 3</option>
-                  <option value="4">QDS - 4</option>
-              </select><br>
+                                        <option value="1">QDS - 1</option>
+                                        <option value="2">QDS - 2</option>
+                                        <option value="3">QDS - 3</option>
+                                        <option value="4">QDS - 4</option>
+                                    </select><br>
                                     <p>Please Select Disable/Enable Users :</p>
                                     <select class="form-control">
-                  <option value="addService">Disable</option>
-                  <option value="deleteService">Enable</option>
-              </select>
+                                        <option value="addService">Disable</option>
+                                        <option value="deleteService">Enable</option>
+                                    </select>
                                 </div>
                                 <div class="modal-footer">
                                     <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
@@ -236,7 +282,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- .end Modal Add/Delete Services -->
 
 
