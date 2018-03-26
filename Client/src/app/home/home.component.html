@@ -1,0 +1,811 @@
+<section id="container">
+    <!-- **********************************************************************************************************************************************************
+  TOP BAR CONTENT & NOTIFICATIONS
+  *********************************************************************************************************************************************************** -->
+    <!--header start-->
+    <header class="header" style="border-bottom: 9px solid #3f4d96; background-color: #9E9E9E;">
+        <a href="home.html" class="logo"><img alt="logo" src="assets/img/qds-logo.png"></a>
+        <a href="#" class="logo1"><b>Query Data Systems</b><br><b>Data Enabled Decisions</b></a>
+        <!-- <a href="#" class="logo1"><b>Welcome , Rajesh Sharma</b></a> -->
+        <!-- <div class="nav notify-row" id="top_menu">
+            
+        </div> -->
+
+        <div class="top-menu">
+            <ul class="nav pull-right top-menu">
+                <li><button type="button" class="logout" (click)="logoutClick()">Logout</button></li>
+            </ul>
+        </div>
+    </header>
+    <!--header end-->
+    <br><br><br>
+    <section id="main">
+        <section class="wrapper site-min-height" id="wrapperid">
+            <!-- SIMPLE ALL SERVICE LIST -->
+            <div class="row mt">
+                <!-- background-image: url(assets/img/login-bg1.jpg); -->
+                <div class="col-md-12">
+                    <div class="white-panel pn" style="height: 1000px;">
+
+                        <br>
+                        <div class="col-md-3">
+                            <h4 class="pull-left" style="color: #000;">Welcome , <b>Rajesh Sharma</b></h4>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-control">
+          <option value="">Please Select Service Type</option>
+            <option value="dataSupport">Data Support</option>
+            <option value="mis">MIS</option>
+            <option value="analytics">Analytics</option>
+            <option value="marketResearch">Market Research</option>
+        </select>
+                        </div>
+                        <div class="col-md-5">
+                            <ul class="nav top-menu">
+                                <li style="margin-right: 15px; color: #000; font-size: 12px;">Last Login: DD/MM/YYYY</li>
+                                <li style="margin-right: 15px; color: #000; font-size: 12px;">Last Data Upload: DD/MM/YY</li>
+                                <li style="margin-right: 15px; color: #000; font-size: 12px;">Last Payment: DD/MM/YY</li>
+                            </ul>
+                        </div>
+                        <br>
+
+                        <ul class="sidebar-menu" id="nav-accordion" style="margin-top: 25px;">
+                            <!-- Service History -->
+                            <!-- <li class="sub-menu dcjq-parent-li">
+                                <a href="javascript:;" class="dcjq-parent" style="font-size: 20px; background-color: #68dff0;">
+                                    <span style="color:#fff">Service History</span> <i class="fa fa-caret-down" style="font-size: 20px; color:#fff"></i>
+                                    <span class="dcjq-icon"></span></a>
+                                <ul class="sub" style="display: none;">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="content-panel" style="text-align: left; padding-top:0px;">
+                                                <h4 style="text-align:center; color:#000;">Data Support</h4>
+                                                <section id="unseen">
+                                                    <table class="table table-bordered table-striped table-condensed">
+                                                        <thead style="color: #000;">
+                                                            <tr>
+                                                                <th>Usage\Month</th>
+                                                                <th class="numeric">Jan - 17</th>
+                                                                <th class="numeric">Feb - 17</th>
+                                                                <th class="numeric">Mar - 17</th>
+                                                                <th class="numeric">Apr - 17</th>
+                                                                <th class="numeric">May - 17</th>
+                                                                <th class="numeric">Jun - 17</th>
+                                                                <th class="numeric">Jul - 17</th>
+                                                                <th class="numeric">Aug - 17</th>
+                                                                <th class="numeric">Sept - 17</th>
+                                                                <th class="numeric">Oct - 17</th>
+                                                                <th class="numeric">Nov - 17</th>
+                                                                <th class="numeric">Dec - 17</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody style="color: #0000008f;">
+
+
+                                                            <tr>
+                                                                <td>Login Count</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">6</td>
+                                                                <td class="numeric">7</td>
+                                                                <td class="numeric">8</td>
+                                                                <td class="numeric">10</td>
+                                                                <td class="numeric">10</td>
+                                                                <td class="numeric">10</td>
+                                                                <td class="numeric">11</td>
+                                                                <td class="numeric">13</td>
+                                                                <td class="numeric">15</td>
+                                                                <td class="numeric">16</td>
+                                                                <td class="numeric">18</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Payment Count</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">0</td>
+                                                                <td class="numeric">0</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">1</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Payment Amount</td>
+                                                                <td class="numeric">1,000</td>
+                                                                <td class="numeric">1,000</td>
+                                                                <td class="numeric">1,000</td>
+                                                                <td class="numeric">1,000</td>
+                                                                <td class="numeric">1,000</td>
+                                                                <td class="numeric">1,000</td>
+                                                                <td class="numeric">1,000</td>
+                                                                <td class="numeric">1,000</td>
+                                                                <td class="numeric">1,000</td>
+                                                                <td class="numeric">1,000</td>
+                                                                <td class="numeric">1,000</td>
+                                                                <td class="numeric">1,000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Upload Count</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">7</td>
+                                                                <td class="numeric">7</td>
+                                                                <td class="numeric">7</td>
+                                                                <td class="numeric">7</td>
+                                                                <td class="numeric">7</td>
+                                                                <td class="numeric">7</td>
+                                                                <td class="numeric">7</td>
+                                                                <td class="numeric">7</td>
+                                                                <td class="numeric">7</td>
+                                                                <td class="numeric">8</td>
+                                                                <td class="numeric">9</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </section>
+                                            </div>
+                                            <!-- /content-panel --
+                                        </div>
+                                        <!-- /col-lg-4 --
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="content-panel" style="text-align: left; padding-top:0px;">
+                                                <h4 style="text-align:center; color:#000;">MIS</h4>
+                                                <section id="unseen">
+                                                    <table class="table table-bordered table-striped table-condensed">
+                                                        <thead style="color: #000;">
+                                                            <tr>
+                                                                <th>Usage\Month</th>
+                                                                <th class="numeric">Jan - 17</th>
+                                                                <th class="numeric">Feb - 17</th>
+                                                                <th class="numeric">Mar - 17</th>
+                                                                <th class="numeric">Apr - 17</th>
+                                                                <th class="numeric">May - 17</th>
+                                                                <th class="numeric">Jun - 17</th>
+                                                                <th class="numeric">Jul - 17</th>
+                                                                <th class="numeric">Aug - 17</th>
+                                                                <th class="numeric">Sept - 17</th>
+                                                                <th class="numeric">Oct - 17</th>
+                                                                <th class="numeric">Nov - 17</th>
+                                                                <th class="numeric">Dec - 17</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody style="color: #0000008f;">
+
+
+                                                            <tr>
+                                                                <td>Login Count</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">6</td>
+                                                                <td class="numeric">7</td>
+                                                                <td class="numeric">9</td>
+                                                                <td class="numeric">11</td>
+                                                                <td class="numeric">11</td>
+                                                                <td class="numeric">11</td>
+                                                                <td class="numeric">13</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Payment Count</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">0</td>
+                                                                <td class="numeric">0</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">1</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Payment Amount</td>
+                                                                <td class="numeric">5,000</td>
+                                                                <td class="numeric">5,000</td>
+                                                                <td class="numeric">5,000</td>
+                                                                <td class="numeric">5,000</td>
+                                                                <td class="numeric">5,000</td>
+                                                                <td class="numeric">5,000</td>
+                                                                <td class="numeric">5,000</td>
+                                                                <td class="numeric">5,000</td>
+                                                                <td class="numeric">5,000</td>
+                                                                <td class="numeric">5,000</td>
+                                                                <td class="numeric">5,000</td>
+                                                                <td class="numeric">5,000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Upload Count</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">6</td>
+                                                                <td class="numeric">8</td>
+                                                                <td class="numeric">9</td>
+                                                                <td class="numeric">11</td>
+                                                                <td class="numeric">12</td>
+                                                                <td class="numeric">12</td>
+                                                                <td class="numeric">12</td>
+                                                                <td class="numeric">13</td>
+                                                                <td class="numeric">13</td>
+                                                                <td class="numeric">14</td>
+                                                                <td class="numeric">14</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </section>
+                                            </div>
+                                            <!-- /content-panel --
+                                        </div>
+                                        <!-- /col-lg-4 --
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="content-panel" style="text-align: left; padding-top:0px;">
+                                                <h4 style="text-align:center; color:#000;">Analytics</h4>
+                                                <section id="unseen">
+                                                    <table class="table table-bordered table-striped table-condensed">
+                                                        <thead style="color: #000;">
+                                                            <tr>
+                                                                <th>Usage\Month</th>
+                                                                <th class="numeric">Jan - 17</th>
+                                                                <th class="numeric">Feb - 17</th>
+                                                                <th class="numeric">Mar - 17</th>
+                                                                <th class="numeric">Apr - 17</th>
+                                                                <th class="numeric">May - 17</th>
+                                                                <th class="numeric">Jun - 17</th>
+                                                                <th class="numeric">Jul - 17</th>
+                                                                <th class="numeric">Aug - 17</th>
+                                                                <th class="numeric">Sept - 17</th>
+                                                                <th class="numeric">Oct - 17</th>
+                                                                <th class="numeric">Nov - 17</th>
+                                                                <th class="numeric">Dec - 17</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody style="color: #0000008f;">
+
+
+                                                            <tr>
+                                                                <td>Login Count</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">7</td>
+                                                                <td class="numeric">9</td>
+                                                                <td class="numeric">11</td>
+                                                                <td class="numeric">13</td>
+                                                                <td class="numeric">13</td>
+                                                                <td class="numeric">13</td>
+                                                                <td class="numeric">13</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Payment Count</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">0</td>
+                                                                <td class="numeric">0</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">1</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Payment Amount</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Upload Count</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">7</td>
+                                                                <td class="numeric">8</td>
+                                                                <td class="numeric">9</td>
+                                                                <td class="numeric">11</td>
+                                                                <td class="numeric">12</td>
+                                                                <td class="numeric">13</td>
+                                                                <td class="numeric">15</td>
+                                                                <td class="numeric">15</td>
+                                                                <td class="numeric">15</td>
+                                                                <td class="numeric">17</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </section>
+                                            </div>
+                                            <!-- /content-panel --
+                                        </div>
+                                        <!-- /col-lg-4 --
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="content-panel" style="text-align: left; padding-top:0px;">
+                                                <h4 style="text-align:center; color:#000;">Market Research</h4>
+                                                <section id="unseen">
+                                                    <table class="table table-bordered table-striped table-condensed">
+                                                        <thead style="color: #000;">
+                                                            <tr>
+                                                                <th>Usage\Month</th>
+                                                                <th class="numeric">Jan - 17</th>
+                                                                <th class="numeric">Feb - 17</th>
+                                                                <th class="numeric">Mar - 17</th>
+                                                                <th class="numeric">Apr - 17</th>
+                                                                <th class="numeric">May - 17</th>
+                                                                <th class="numeric">Jun - 17</th>
+                                                                <th class="numeric">Jul - 17</th>
+                                                                <th class="numeric">Aug - 17</th>
+                                                                <th class="numeric">Sept - 17</th>
+                                                                <th class="numeric">Oct - 17</th>
+                                                                <th class="numeric">Nov - 17</th>
+                                                                <th class="numeric">Dec - 17</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody style="color: #0000008f;">
+
+
+                                                            <tr>
+                                                                <td>Login Count</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">7</td>
+                                                                <td class="numeric">9</td>
+                                                                <td class="numeric">11</td>
+                                                                <td class="numeric">13</td>
+                                                                <td class="numeric">13</td>
+                                                                <td class="numeric">13</td>
+                                                                <td class="numeric">13</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Payment Count</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">0</td>
+                                                                <td class="numeric">0</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">1</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Payment Amount</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                                <td class="numeric">25,000</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Upload Count</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">7</td>
+                                                                <td class="numeric">8</td>
+                                                                <td class="numeric">9</td>
+                                                                <td class="numeric">11</td>
+                                                                <td class="numeric">12</td>
+                                                                <td class="numeric">13</td>
+                                                                <td class="numeric">15</td>
+                                                                <td class="numeric">15</td>
+                                                                <td class="numeric">15</td>
+                                                                <td class="numeric">17</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </section>
+                                            </div>
+                                            <!-- /content-panel --
+                                        </div>
+                                        <!-- /col-lg-4 --
+                                    </div>
+
+                                </ul>
+                            </li> -->
+
+                            <!-- Privacy Policy -->
+                            <!-- <li class="sub-menu dcjq-parent-li">
+                                <a href="javascript:;" class="dcjq-parent" style="font-size: 20px; background-color: #68dff0;">
+                                    <span style="color:#fff">Privacy Policy</span> <i class="fa fa-caret-down" style="font-size: 20px; color:#fff"></i>
+                                    <span class="dcjq-icon"></span></a>
+                                <ul class="sub" style="display: none;">
+                                    <li style="background: #fff;">
+                                        <p>Once user selects the service type that he is registered for than last data upload and last payment date should be displayed.</p>
+                                        <p>Once user selects the service type that he is registered for than last data upload and last payment date should be displayed.</p>
+                                        <p>Once user selects the service type that he is registered for than last data upload and last payment date should be displayed.</p>
+                                        <p>Once user selects the service type that he is registered for than last data upload and last payment date should be displayed.</p>
+                                    </li>
+                                </ul>
+                            </li> -->
+
+                            <li class="sub-menu dcjq-parent-li">
+                                <a href="javascript:;" class="dcjq-parent" style="font-size: 20px; background-color: #68dff0;">
+                                    <span style="color:#fff">Upload Data</span> <i class="fa fa-caret-down" style="font-size: 20px; color:#fff"></i>
+                                    <span class="dcjq-icon"></span></a>
+                                <ul class="sub" style="display: none;">
+                                    <li style="background: #fff;">
+                                        <form class="form-login" style="margin: 30px auto 0; border: 1px solid #607D8B;">
+                                            <!-- <h2 class="form-login-heading" style="background: #27c24c ;">login</h2> -->
+                                            <div class="login-wrap">
+                                                <input type="file" class="form-control" name="file" multiple>
+                                                <label style="color:#000;font-weight: 700;">Choose only file like - csv</label>
+                                                <br>
+                                                <button class="btn btn-theme btn-block" style="background-color: #27c24c; border-color: #27c24c;" type="submit">Upload Data</button>
+                                            </div>
+                                        </form>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li class="sub-menu dcjq-parent-li">
+                                <a href="javascript:;" class="dcjq-parent" style="font-size: 20px; background-color: #68dff0;">
+                                    <span style="color:#fff">Download Data</span> <i class="fa fa-caret-down" style="font-size: 20px; color:#fff"></i>
+                                    <span class="dcjq-icon"></span></a>
+                                <ul class="sub" style="display: none;">
+                                    <li style="background: #fff;">
+                                        <form class="form-login" style="margin: 30px auto 0; border: 1px solid #607D8B;">
+                                            <!-- <h2 class="form-login-heading" style="background: #27c24c ;">login</h2> -->
+                                            <div class="login-wrap">
+                                                <button class="btn btn-theme btn-block" style="background-color: #27c24c; border-color: #27c24c;" type="submit">Download General Data</button>
+                                            </div>
+                                            <div class="login-wrap">
+                                                <button class="btn btn-theme btn-block" style="background-color: #27c24c; border-color: #27c24c;" type="submit">Download Specific Data</button>
+                                            </div>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="sub-menu dcjq-parent-li">
+                                <a href="javascript:;" class="dcjq-parent" style="font-size: 20px; background-color: #68dff0;">
+                                    <span style="color:#fff">Make Payment</span> <i class="fa fa-caret-down" style="font-size: 20px; color:#fff"></i>
+                                    <span class="dcjq-icon"></span></a>
+                                <ul class="sub" style="display: none;">
+                                    <li style="background: #fff;">
+                                        <form class="form-login" style="margin: 30px auto 0; border: 1px solid #607D8B;">
+                                            <div class="login-wrap">
+                                                <select class="form-control">
+                                                    <option value="volvo">Please Select Service </option>
+                                                    <option value="dataSupport">Data Support</option>
+                                                    <option value="mis">MIS</option>
+                                                    <option value="analytics">Analytics</option>
+                                                    <option value="marketResearch">Market Research</option>
+                                                </select>
+                                                <br>
+                                                <button class="btn btn-theme btn-block" style="background-color: #27c24c; border-color: #27c24c;" type="submit">Make Payment</button>
+                                            </div>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- projects -->
+                            <!-- <li class="sub-menu dcjq-parent-li">
+                                <a href="javascript:;" class="dcjq-parent" style="font-size: 20px; background-color: #68dff0;">
+                                    <span style="color:#fff">Projects</span> <i class="fa fa-caret-down" style="font-size: 20px; color:#fff"></i>
+                                    <span class="dcjq-icon"></span></a>
+                                <ul class="sub" style="display: none;">
+                                    <br>
+                                    <div class="col-md-4">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <select class="form-control">
+                                          <option value="">Please Select City</option>
+                                            <option value="Bangalore">Bangalore</option>
+                                            <option value="Hyderabad">Hyderabad</option>
+                                            <option value="Chennai">Chennai</option>
+                                            <option value="marketResearch">Mumbai</option>
+                                            <option value="marketResearch">Ahmedabad</option>
+                                            <option value="marketResearch">Delhi</option>
+                                            <option value="marketResearch">Kolkata</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="content-panel" style="text-align: left; padding-top:0px;">
+                                                <h4 style="text-align:center; color:#000;">Bangalore - Data Support</h4>
+                                                <section id="unseen">
+                                                    <table class="table table-bordered table-striped table-condensed">
+                                                        <thead style="color: #000;">
+                                                            <tr>
+                                                                <th>SQFT/Year</th>
+                                                                <th class="numeric">2008</th>
+                                                                <th class="numeric">2009</th>
+                                                                <th class="numeric">2010</th>
+                                                                <th class="numeric">2011</th>
+                                                                <th class="numeric">2012</th>
+                                                                <th class="numeric">2013</th>
+                                                                <th class="numeric">2014</th>
+                                                                <th class="numeric">2015</th>
+                                                                <th class="numeric">2016</th>
+                                                                <th class="numeric">2017</th>
+                                                                <th class="numeric">2018</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody style="color: #0000008f;">
+                                                            <tr>
+                                                                <td>
+                                                                    < 500</td>
+                                                                        <td class="numeric">1</td>
+                                                                        <td class="numeric">2</td>
+                                                                        <td class="numeric">5</td>
+                                                                        <td class="numeric">4</td>
+                                                                        <td class="numeric">2</td>
+                                                                        <td class="numeric">1</td>
+                                                                        <td class="numeric">4</td>
+                                                                        <td class="numeric">5</td>
+                                                                        <td class="numeric">2</td>
+                                                                        <td class="numeric">2</td>
+                                                                        <td class="numeric">5</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>501 - 1000</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">5</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>1001 - 2000</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">5</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>2001 - 3500</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">5</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>3501 - 5500</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">5</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>5501 - 8000</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">5</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>8001 - 11000</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">5</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>11001 - 15000</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">5</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>> 15000</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">1</td>
+                                                                <td class="numeric">4</td>
+                                                                <td class="numeric">5</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">2</td>
+                                                                <td class="numeric">5</td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>Total</td>
+                                                                <td class="numeric">10</td>
+                                                                <td class="numeric">20</td>
+                                                                <td class="numeric">30</td>
+                                                                <td class="numeric">35</td>
+                                                                <td class="numeric">45</td>
+                                                                <td class="numeric">10</td>
+                                                                <td class="numeric">40</td>
+                                                                <td class="numeric">25</td>
+                                                                <td class="numeric">35</td>
+                                                                <td class="numeric">25</td>
+                                                                <td class="numeric">20</td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </section>
+                                            </div>
+                                            <!-- /content-panel --
+                                        </div>
+                                        <!-- /col-lg-4 --
+                                    </div>
+
+                                </ul>
+
+                            </li> -->
+
+                            <li class="sub-menu dcjq-parent-li">
+                                <a href="javascript:;" class="dcjq-parent" style="font-size: 20px; background-color: #68dff0;">
+                                    <span style="color:#fff">Enquiry</span> <i class="fa fa-caret-down" style="font-size: 20px; color:#fff"></i>
+                                    <span class="dcjq-icon"></span></a>
+                                <ul class="sub" style="display: none;">
+                                    <li style="background: #fff;">
+                                        <form class="form-login" style="margin: 30px auto 0; border: 1px solid #607D8B;" [formGroup]="enquiry" (ngSubmit)="enquiryFormSubmit(enquiry)">
+                                            <!-- <h2 class="form-login-heading" style="background: #27c24c ;">login</h2> -->
+                                            <div class="login-wrap">
+                                                <select class="form-control" name="uservicestatus" formControlName="uservicestatus">
+                                                    <option value="addservice" selected>Add Service</option>
+                                                    <option value="delservice">Delete Service</option>
+                                                </select>
+                                                <br>
+                                                <select class="form-control" name="uservicetype" formControlName="uservicetype">
+                                                    <option value="dataSupport" selected >Data Support</option>
+                                                    <option value="mis">MIS</option>
+                                                    <option value="analytics">Analytics</option>
+                                                    <option value="marketResearch">Market Research</option>
+                                                </select>
+                                                <br>
+                                                <input class="form-control" name="uquery" placeholder="Query" formControlName="uquery" />
+                                                <br>
+                                                <textarea class="form-control" name="ufeedback" placeholder="Feedback" rows="3" formControlName="ufeedback"></textarea>
+                                                <br>
+                                                <button class="btn btn-theme btn-block" style="background-color: #27c24c; border-color: #27c24c;" type="submit" [disabled]="!enquiry.valid">Submit</button>
+                                            </div>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="sub-menu dcjq-parent-li">
+                                <a href="javascript:;" class="dcjq-parent" style="font-size: 20px; background-color: #68dff0;">
+                                    <span style="color:#fff">Contact Us</span> <i class="fa fa-caret-down" style="font-size: 20px; color:#fff"></i>
+                                    <span class="dcjq-icon"></span></a>
+                                <ul class="sub" style="display: none;">
+                                    <li style="background: #fff;">
+                                        <form class="form-login" style="margin: 30px auto 0; border: 1px solid #607D8B;" [formGroup]="contactus" (ngSubmit)="contactFormaSubmit(contactus)">
+                                            <!-- <h2 class="form-login-heading" style="background: #27c24c ;">login</h2> -->
+                                            <div class="login-wrap">
+                                                <input type="text" name="uname" class="form-control" placeholder="Name" formControlName="uname">
+                                                <div class="error" *ngIf="contactus.controls['uname'].hasError('required') && contactus.controls['uname'].touched"> Name is required</div>
+
+                                                <br>
+                                                <input type="text" name="uemailid" class="form-control" placeholder="Email ID" formControlName="uemailid">
+                                                <div class="error" *ngIf="contactus.controls['uemailid'].hasError('required') && contactus.controls['uemailid'].touched"> Email is required</div>
+
+                                                <br>
+                                                <input type="text" name="umobilenumber" class="form-control" placeholder="Contact Number" formControlName="umobilenumber">
+                                                <div class="error" *ngIf="contactus.controls['umobilenumber'].hasError('required') && contactus.controls['umobilenumber'].touched">mobile number is required</div>
+
+                                                <br>
+                                                <textarea class="form-control" name="urequirement" placeholder="Share your requirement" rows="4" formControlName="urequirement"></textarea>
+                                                <div class="error" *ngIf="contactus.controls['urequirement'].hasError('required') && contactus.controls['urequirement'].touched">Requirement is required</div>
+
+                                                <br>
+                                                <button class="btn btn-theme btn-block" style="background-color: #27c24c; border-color: #27c24c;" type="submit" [disabled]="!contactus.valid">Submit</button>
+                                            </div>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--/ White-panel -->
+                </div>
+            </div>
+
+        </section>
+    </section>
+
+    <!--footer start-->
+    <footer class="site-footer">
+        <div class="text-center">
+            2018 - Query Data Systems
+            <a href="#" class="go-top">
+                <i class="fa fa-angle-up"></i>
+            </a>
+        </div>
+    </footer>
+    <!--footer end-->
+</section>

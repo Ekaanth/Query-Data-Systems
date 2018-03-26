@@ -1,0 +1,27 @@
+<div id="login-page">
+    <div class="container">
+        <form class="form-login" style="max-width: 350px;" [formGroup]="userlogin" (ngSubmit)="userloginSubmit(userlogin)">
+            <h2 class="form-login-heading" style="background: #27c24c ;">login</h2>
+            <div class="login-wrap">
+                <div class="error" *ngIf="loginErrorBoolean">Invalid Username/Password</div>
+
+                <input type="text" class="form-control" placeholder="Query Id" autofocus formControlName="uqueryid">
+                <div class="error" *ngIf="userlogin.controls['uqueryid'].hasError('required')  && userlogin.controls['uqueryid'].touched">Enter Query Id</div>
+                <br>
+                <input type="password" class="form-control" placeholder="Password" formControlName="upassword">
+                <div class="error" *ngIf="userlogin.controls['uqueryid'].hasError('required')  && userlogin.controls['upassword'].touched">Enter Password</div>
+                <br>
+                <button class="btn btn-theme btn-block" style="background-color: #27c24c; border-color: #27c24c;" type="submit" [disabled]="!userlogin.valid"><i class="fa fa-lock"></i> Submit</button>
+                <br>
+                <label class="checkbox"> 
+        <span class="pull-left">
+                    <a [routerLink]="['/requestaccess']" style="font-size:14px;">Request Access</a>
+                </span>
+                <span class="pull-right">
+                    <a [routerLink]="['/forgot']" style="font-size:14px;"> Forgot Username/Password</a>
+                </span>
+            </label>
+            </div>
+        </form>
+    </div>
+</div>
