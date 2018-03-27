@@ -5,11 +5,14 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.qds.sa.domain.RequestAccess;
 import com.qds.sa.domain.UserProfile;
 import com.qds.sa.jparepository.RequestAccessRep;
 import com.qds.sa.jparepository.UserProfileRep;
 import com.qds.sa.service.UserProfileService;
+import com.qds.sa.service.UserServiceListService;
 import com.qds.sa.util.constant.ActiveStatus;
 import com.qds.sa.util.helper.EmailService;
 
@@ -22,14 +25,19 @@ public class UserprofileServiceImp implements UserProfileService{
 	@Autowired
 	RequestAccessRep requestaccessrepo;
 	
+	
+	@Autowired
+	UserServiceListService userServiceListService;
+	
+	
 	@Autowired 
 	EmailService emailService;
 	
 	Date date = new Date();
 	
 	@Override
-	public UserProfile addUser(UserProfile user) {
-		
+	public boolean addUser(UserProfile user) {
+		try {
 		String uId = user.getUid();
 		RequestAccess returndata = updateRequestAccess(uId);
 		user.setUname(returndata.getUname());
@@ -37,8 +45,19 @@ public class UserprofileServiceImp implements UserProfileService{
 		user.setUmobilenumber(returndata.getUmobilenumber());
 		user.setUstarteddate(new Date(date.getTime()));
 		UserProfile saveuser = userprofilerepo.save(user);
+
+		JsonParser jsonParser = new JsonParser();
+		JsonObject objectFromString = jsonParser.parse(saveuser.getUservice()).getAsJsonObject();
+		 
+		System.out.println(objectFromString.toString());
+		
+	//	userServiceListService.addNewService(userServiceList);
 		emailService.userAddesEmail(saveuser);
-		return saveuser;
+		}
+		 catch (Exception e) {
+			e.getStackTrace();
+		}
+		return true;
 	}
 	
 	private RequestAccess updateRequestAccess(String uId) {

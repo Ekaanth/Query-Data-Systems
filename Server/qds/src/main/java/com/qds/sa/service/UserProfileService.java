@@ -4,7 +4,7 @@ import com.qds.sa.domain.UserProfile;
 
 public interface UserProfileService {
 
-	public UserProfile addUser (UserProfile user);
+	public boolean addUser (UserProfile user) throws Exception;
 	
 	public Boolean findUserProfile(String queryId , String password);
 	

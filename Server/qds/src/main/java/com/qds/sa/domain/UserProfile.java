@@ -3,6 +3,8 @@ package com.qds.sa.domain;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +27,8 @@ public class UserProfile {
 	private String umobilenumber;
 	private String upassword;
 	private String ustorearea;
-	private String[] uservice;
+	private String uservice;
+	@Enumerated(EnumType.STRING)
 	private ActiveStatus uprofilestatus;
 	private Date ustarteddate;
 	private Date userlastlogin;
@@ -96,10 +99,10 @@ public class UserProfile {
 	public void setUserlastlogin(Date userlastlogin) {
 		this.userlastlogin = userlastlogin;
 	}
-	public String[] getUservice() {
+	public String getUservice() {
 		return uservice;
 	}
-	public void setUservice(String[] uservice) {
+	public void setUservice(String uservice) {
 		this.uservice = uservice;
 	}
 

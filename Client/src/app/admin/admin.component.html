@@ -124,51 +124,8 @@
 
 
                     <!-- Modal New User-->
-                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="newUser" class="modal fade">
-                        <div class="modal-dialog">
-                            <form [formGroup]="forgotpassword" (ngSubmit)="forgotpassword(forgotpassword)">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        <h4 class="modal-title">Onboard New User</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Please Select User</p>
-                                        <select class="form-control" formControlName="uid">
-                                        <option  *ngFor="let user of inactiveRequestedUser" value="{{user.uid}}">{{user.uid}}</option>
-                                    </select><br>
-                                        <p>Create QueryID for User Login </p>
-                                        <input type="text" name="queryId" placeholder="Create QueryID" autocomplete="off" class="form-control placeholder-no-fix" formControlName="uqueryid"><br>
-                                        <p>Create Password for User Login </p>
-                                        <input type="text" name="password" placeholder="Create Password" autocomplete="off" class="form-control placeholder-no-fix" formControlName="upassword"><br>
-                                        <p>Please checks service :</p>
-                                        <ng-select [multiple]="true" [allowClear]="true" [items]="items" (selected)="selected($event)" (removed)="removed($event)" placeholder="Service Selected">
-                                        </ng-select>
-                                        <!-- <label class="checkbox-inline">
-                                        <input type="checkbox" id="inlineCheckbox1" value="datasupport">Data Support
-                                    </label>
-                                        <label class="checkbox-inline">
-                                        <input type="checkbox" id="inlineCheckbox2" value="mis">MIS
-                                    </label>
-                                        <label class="checkbox-inline">
-                                        <input type="checkbox" id="inlineCheckbox3" value="analytics">Analytics
-                                    </label>
-                                        <label class="checkbox-inline">
-                                        <input type="checkbox" id="inlineCheckbox3" value="mr">MR
-                                    </label> -->
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-                                        <button class="btn btn-theme" type="submit" [disabled]="!adduser.valid">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- .end Modal New User-->
 
-                    <!-- Modal Add/Delete Services-->
-                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="userDisable" class="modal fade">
+                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="newUser" class="modal fade">
                         <div class="modal-dialog">
                             <form [formGroup]="adduser" (ngSubmit)="addUserFormSubmit(adduser)">
                                 <div class="modal-content">
@@ -209,6 +166,54 @@
                             </form>
                         </div>
                     </div>
+
+
+
+                    <!-- <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="newUser" class="modal fade">
+                        <div class="modal-dialog">
+                            <form [formGroup]="forgotpassword" (ngSubmit)="forgotpassword(forgotpassword)">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title">Onboard New User</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Please Select User</p>
+                                        <select class="form-control" formControlName="uid">
+                                        <option  *ngFor="let user of inactiveRequestedUser" value="{{user.uid}}">{{user.uid}}</option>
+                                    </select><br>
+                                        <p>Create QueryID for User Login </p>
+                                        <input type="text" name="queryId" placeholder="Create QueryID" autocomplete="off" class="form-control placeholder-no-fix" formControlName="uqueryid"><br>
+                                        <p>Create Password for User Login </p>
+                                        <input type="text" name="password" placeholder="Create Password" autocomplete="off" class="form-control placeholder-no-fix" formControlName="upassword"><br>
+                                        <p>Please checks service :</p>
+                                        <ng-select [multiple]="true" [allowClear]="true" [items]="items" (selected)="selected($event)" (removed)="removed($event)" placeholder="Service Selected">
+                                        </ng-select>
+                                        <!-- <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox1" value="datasupport">Data Support
+                                    </label>
+                                        <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox2" value="mis">MIS
+                                    </label>
+                                        <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox3" value="analytics">Analytics
+                                    </label>
+                                        <label class="checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox3" value="mr">MR
+                                    </label> --
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                                        <button class="btn btn-theme" type="submit" [disabled]="!adduser.valid">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div> -->
+                    <!-- .end Modal New User-->
+
+                    <!-- Modal Add/Delete Services-->
+
                     <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="addService" class="modal fade">
                         <div class="modal-dialog">
                             <div class="modal-content">

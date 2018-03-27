@@ -50,10 +50,10 @@ export class AdminComponent implements OnInit {
       'uid': this.adduser.controls.uid.value,
       'uqueryid': this.adduser.controls.uqueryid.value,
       'upassword': this.adduser.controls.upassword.value,
-      'uservice' : this.userservice
+      'uservice' : JSON.stringify(this.userservice)
     };
     console.log(addUser);
-  this.adduser.disable();
+   this.adduser.disable();
    this.us.addUser(addUser).subscribe(data => this.useradd(data) , error => this.error(error));
   }
 

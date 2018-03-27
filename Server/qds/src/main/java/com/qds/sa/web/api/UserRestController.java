@@ -29,8 +29,13 @@ public class UserRestController {
 	        produces = MediaType.APPLICATION_JSON_VALUE )
 	public ResponseEntity<UserProfile> addUser(@RequestBody UserProfile user)
 	{
-		UserProfile resp = userProfileService.addUser(user);
-		return new ResponseEntity<UserProfile>(resp , HttpStatus.OK);
+		try {
+			boolean resp = userProfileService.addUser(user);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new ResponseEntity<UserProfile>(HttpStatus.OK);
 	}
 	
 }
