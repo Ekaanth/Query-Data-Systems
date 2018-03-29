@@ -19,6 +19,7 @@ public class LoginAccess {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private String uid;
 	private String uqueryid;
 	private String upassword;
 	private String uipaddress;
@@ -68,6 +69,12 @@ public class LoginAccess {
 	}
 	public void setUqueryid(String uqueryid) {
 		this.uqueryid = uqueryid;
+	}
+	public String getUid() {
+		return uid;
+	}
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
 	
 	

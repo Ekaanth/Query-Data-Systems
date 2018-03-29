@@ -85,6 +85,10 @@ this.adduser.enable();
     }
   }
 
+  
+  getAlltheForgotList() {
+
+  }  
 
   forgotpasswordSubmit(forgotpassword) {
     console.log(forgotpassword);

@@ -2,6 +2,7 @@ package com.qds.sa.domain;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -23,7 +24,9 @@ public class UserProfile {
 	private String uid;
 	private String uqueryid;
 	private String uname;
+	@Column(name="uemailid")
 	private String uemailid;
+	@Column(name="umobilenumber")
 	private String umobilenumber;
 	private String upassword;
 	private String ustorearea;

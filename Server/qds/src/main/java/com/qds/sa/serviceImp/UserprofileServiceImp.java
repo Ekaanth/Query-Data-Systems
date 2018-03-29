@@ -46,6 +46,7 @@ public class UserprofileServiceImp implements UserProfileService{
 		user.setUemailid(returndata.getUemailid());
 		user.setUmobilenumber(returndata.getUmobilenumber());
 		user.setUstarteddate(new Date(date.getTime()));
+		user.setUprofilestatus(ActiveStatus.ACTIVE);
 		UserProfile saveuser = userprofilerepo.save(user);
 		 String[] myData = saveuser.getUservice().replace("[", "").replace("]", "").replaceAll("\"", "").split(",");
 		for (String s: myData) {
