@@ -18,6 +18,6 @@ export class UserService {
 
     addUser(user) {
         const url = `${global.base_url}user/adduser`;
-        return this.http.post(url, user).map((response: Response) => response.json());
+        return this.http.post(url, user).map(res => res);
     }
 }

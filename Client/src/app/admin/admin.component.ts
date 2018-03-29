@@ -59,8 +59,10 @@ export class AdminComponent implements OnInit {
 
   useradd(data) {
     this.ts.success('', 'User added');
+    this.userservice = [];
     this.adduser.enable();
     this.adduser.reset();
+  this.inactiveRequestedUser = [];
     this.hs.getInactiveRequestAccess().subscribe(resdata =>
       this.getRequestedUsers(resdata) , error => this.error(error));
   }

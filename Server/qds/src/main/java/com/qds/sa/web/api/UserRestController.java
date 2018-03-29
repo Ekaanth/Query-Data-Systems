@@ -27,15 +27,17 @@ public class UserRestController {
 	        method = RequestMethod.POST,
 	        consumes = MediaType.APPLICATION_JSON_VALUE,
 	        produces = MediaType.APPLICATION_JSON_VALUE )
-	public ResponseEntity<UserProfile> addUser(@RequestBody UserProfile user)
+	public ResponseEntity<UserProfile> addUser(@RequestBody UserProfile user)throws Exception
 	{
 		try {
 			boolean resp = userProfileService.addUser(user);
+			return new ResponseEntity<UserProfile>( HttpStatus.OK);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			throw new Exception(e.getMessage());
 		}
-		return new ResponseEntity<UserProfile>(HttpStatus.OK);
+		
 	}
 	
 }
