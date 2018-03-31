@@ -16,6 +16,7 @@ import com.qds.sa.domain.ForgotAccess;
 import com.qds.sa.domain.LoginAccess;
 import com.qds.sa.domain.RequestAccess;
 import com.qds.sa.domain.UserProfile;
+import com.qds.sa.domain.tmodel.TLoginUser;
 import com.qds.sa.service.ForgotAccessService;
 import com.qds.sa.service.LoginAccessService;
 import com.qds.sa.service.RequestAccessService;
@@ -71,10 +72,10 @@ public class LoginRestController {
 	        method = RequestMethod.POST,
 	        produces = MediaType.APPLICATION_JSON_VALUE )
 	@CrossOrigin(origins= "http://localhost:4200/")
-	public ResponseEntity<LoginAccess> userlogin(@RequestBody LoginAccess requestAccess)
+	public ResponseEntity<TLoginUser> userlogin(@RequestBody LoginAccess requestAccess)
 	{
 		LoginAccess res = loginAccessService.addLoginDetails(requestAccess);
-		 return new ResponseEntity<LoginAccess>(res , HttpStatus.OK);
+		 return new ResponseEntity<TLoginUser>(HttpStatus.OK);
 	}
 	
 	@RequestMapping(
@@ -86,8 +87,7 @@ public class LoginRestController {
 	public ResponseEntity<UserProfile> userlogin(@PathVariable("id") String uqueryid)
 	{
 		UserProfile res = userProfileService.findUserProfileByUqueryid(uqueryid);
-		res.setUpassword("");
-		 return new ResponseEntity<UserProfile>(res , HttpStatus.OK);
+		 return new ResponseEntity<UserProfile>(HttpStatus.OK);
 	}
 	
 	@RequestMapping(
