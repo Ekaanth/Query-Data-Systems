@@ -8,11 +8,13 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.qds.sa.util.constant.PaymentStatus;
 import com.qds.sa.util.constant.UserServiceConstant;
 
 @Entity
+@Table(name="payment")
 public class UserServicePayment {
 
 	@Id

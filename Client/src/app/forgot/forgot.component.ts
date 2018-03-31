@@ -33,7 +33,7 @@ export class ForgotComponent implements OnInit {
       'uid': this.forgotAccess.controls.uid.value,
       'uipaddress': this.sysDetails.ip
     };
-    this.ls.forgotAccess(forgot).subscribe(data => this.forgot(data) , error => this.error(error));
+    this.ls.forgotAccess(forgot).subscribe(data => this.forgot(data), error => this.error(error));
   }
 
   error(error) {
