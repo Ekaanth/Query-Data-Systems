@@ -80,7 +80,7 @@ public class UserprofileServiceImp implements UserProfileService{
 	}
 
 	@Override
-	public Boolean findUserProfile(String queryid , String password) {
+	public UserProfile findUserProfile(String queryid , String password) {
 		Boolean result;
 		UserProfile res = userprofilerepo.findByUqueryid(queryid);
 		if(res != null) {
@@ -92,7 +92,14 @@ public class UserprofileServiceImp implements UserProfileService{
 		}else {
 			result = false;
 		}
-		return result;
+		res.setUserlastlogin(date);
+		userprofilerepo.save(res);
+		if( result == true) {
+			return res;
+		}else {
+			return null;
+		}
+	
 	}
 
 	@Override
@@ -105,8 +112,6 @@ public class UserprofileServiceImp implements UserProfileService{
 	public UserProfile updateLogintime(String uqueryid) {
 		UserProfile res = findUserProfileByUqueryid(uqueryid);
 		res.setUserlastlogin(new Date(date.getTime()));
-		userprofilerepo.save(res);
-		res.setUpassword(null);
 		return res;
 	}
 }

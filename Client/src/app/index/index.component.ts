@@ -37,21 +37,16 @@ export class IndexComponent implements OnInit {
   }
 
   userlogindetails(data) {
-    console.log(data);
-    if (data.uresult === 'FAILED') {
-      this.loginErrorBoolean = true;
-    } else {
       this.ts.success('', 'User Login Successfully');
       this.loginErrorBoolean = false;
-      console.log(data);
-      localStorage.setItem('uqueryid' , data.uqueryid);
+      localStorage.setItem('userDetail' , JSON.stringify(data));
       this.router.navigateByUrl('/home');
-    }
     this.userlogin.enable();
   }
-
+ 
   loginError(error) {
     this.loginErrorBoolean = true;
     this.userlogin.enable();
+    this.ts.error('', 'User Login Unsuccessfully');
   }
 }

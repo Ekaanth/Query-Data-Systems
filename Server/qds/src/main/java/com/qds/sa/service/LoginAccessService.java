@@ -5,5 +5,5 @@ import com.qds.sa.domain.tmodel.TLoginUser;
 
 public interface LoginAccessService {
 
-	public LoginAccess addLoginDetails(LoginAccess details);
+	public TLoginUser addLoginDetails(LoginAccess details);
 }

@@ -20,4 +20,4 @@ export class UserService {
         const url = `${global.base_url}user/adduser`;
         return this.http.post(url, user).map(res => res);
     }
-}
+} 

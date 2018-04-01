@@ -735,19 +735,19 @@ TOP BAR CONTENT & NOTIFICATIONS
                                         <form class="form-login" style="margin: 30px auto 0; border: 1px solid #607D8B;" [formGroup]="enquiry" (ngSubmit)="enquiryFormSubmit(enquiry)">
                                             <!-- <h2 class="form-login-heading" style="background: #27c24c ;">login</h2> -->
                                             <div class="login-wrap">
-                                                <select class="form-control" name="uservicestatus" formControlName="uservicestatus">
+                                                <select class="form-control" formControlName="uservicestatus">
                                                   <option value="addservice" selected>Add Service</option>
                                                   <option value="delservice">Delete Service</option>
                                               </select>
                                                 <br>
-                                                <select class="form-control" name="uservicetype" formControlName="uservicetype">
+                                                <select class="form-control" formControlName="uservicetype">
                                                   <option value="dataSupport" selected >Data Support</option>
                                                   <option value="mis">MIS</option>
                                                   <option value="analytics">Analytics</option>
                                                   <option value="marketResearch">Market Research</option>
                                               </select>
                                                 <br>
-                                                <input class="form-control" name="uquery" placeholder="Query" formControlName="uquery" />
+                                                <input class="form-control" placeholder="Query" formControlName="uquery" />
                                                 <br>
                                                 <textarea class="form-control" name="ufeedback" placeholder="Feedback" rows="3" formControlName="ufeedback"></textarea>
                                                 <br>

@@ -3,6 +3,8 @@ package com.qds.sa.domain.tmodel;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.qds.sa.domain.UserServiceList;
+
 public class TLoginUser {
 
 	private String uid;
@@ -11,7 +13,7 @@ public class TLoginUser {
 	private String umobilenumber;
 	private String uprofilestatus;
 	private Date ulastlogin;
-	private ArrayList<TUserService> uservice;
+	private ArrayList<UserServiceList> uservice;
 	public String getUid() {
 		return uid;
 	}
@@ -48,11 +50,12 @@ public class TLoginUser {
 	public void setUlastlogin(Date ulastlogin) {
 		this.ulastlogin = ulastlogin;
 	}
-	public ArrayList<TUserService> getUservice() {
+	public ArrayList<UserServiceList> getUservice() {
 		return uservice;
 	}
-	public void setUservice(ArrayList<TUserService> uservice) {
+	public void setUservice(ArrayList<UserServiceList> uservice) {
 		this.uservice = uservice;
 	}
+
 	
 }

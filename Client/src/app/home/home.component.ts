@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
      private ts: ToastrService, private router: Router) { }
 
   ngOnInit() {
-    if (localStorage.getItem('uqueryid')) {
+    if (localStorage.getItem('userDetail')) {
       this.contactus = this.fb.group({
         uname: [null, Validators.compose([Validators.required])],
         uemailid: [null, Validators.compose([Validators.required])],
@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
         ufeedback: [null, Validators.compose([Validators.required])]
       });
       this.sysDetails = this.ls.getCurrentUser();
-      this.ls.updataLogintime('Abhi').subscribe();
+      this.ls.updataLogintime(localStorage.getItem('userDetail')).subscribe();
   } else {
     this.router.navigateByUrl('/');
   }

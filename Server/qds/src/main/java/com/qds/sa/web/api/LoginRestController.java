@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -72,10 +73,10 @@ public class LoginRestController {
 	        method = RequestMethod.POST,
 	        produces = MediaType.APPLICATION_JSON_VALUE )
 	@CrossOrigin(origins= "http://localhost:4200/")
-	public ResponseEntity<TLoginUser> userlogin(@RequestBody LoginAccess requestAccess)
+	public ResponseEntity<TLoginUser> userlogin(@RequestBody LoginAccess requestAcces)
 	{
-		LoginAccess res = loginAccessService.addLoginDetails(requestAccess);
-		 return new ResponseEntity<TLoginUser>(HttpStatus.OK);
+		TLoginUser res = loginAccessService.addLoginDetails(requestAcces);
+		 return new ResponseEntity<TLoginUser>(res , HttpStatus.OK);
 	}
 	
 	@RequestMapping(
@@ -84,14 +85,14 @@ public class LoginRestController {
 	        consumes = MediaType.APPLICATION_JSON_VALUE,
 	        produces = MediaType.APPLICATION_JSON_VALUE )
 	@CrossOrigin(origins= "http://localhost:4200/")
-	public ResponseEntity<UserProfile> userlogin(@PathVariable("id") String uqueryid)
+	public ResponseEntity<UserProfile> userlogin(@RequestParam("id") String uqueryid)
 	{
 		UserProfile res = userProfileService.findUserProfileByUqueryid(uqueryid);
 		 return new ResponseEntity<UserProfile>(HttpStatus.OK);
 	}
 	
 	@RequestMapping(
-	        value = ("/updateLoginTime/{id}"),
+	        value = ("/updateLoginTime/id"),
 	        method = RequestMethod.GET,
 	        consumes = MediaType.APPLICATION_JSON_VALUE,
 	        produces = MediaType.APPLICATION_JSON_VALUE )
@@ -99,8 +100,7 @@ public class LoginRestController {
 	public ResponseEntity<UserProfile> updateLoginTime(@PathVariable("id") String uqueryid)
 	{
 		UserProfile res = userProfileService.updateLogintime(uqueryid);
-		res.setUpassword("");
-		 return new ResponseEntity<UserProfile>(res , HttpStatus.OK);
+		 return new ResponseEntity<UserProfile>( HttpStatus.OK);
 	}
 	
 }

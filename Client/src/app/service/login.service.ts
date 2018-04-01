@@ -53,12 +53,12 @@ export class LoginService {
       }
 
       userLogindetails(quid) {
-        const url = `${global.base_url}/findByUqueryId/${quid}`;
+        const url = `${global.base_url}findByUqueryId/${quid}`;
         return this.http.get(url).map(res => res.json());
       }
 
       updataLogintime(quid) {
-        const url = `${global.base_url}/updateLoginTime/${quid}`;
+        const url = `${global.base_url}updateLoginTime/${quid}`;
         return this.http.get(url).map(res => res.json());
       }
 }
