@@ -4,6 +4,7 @@ import { LoginService } from '../service/login.service';
 import { HomeService } from '../service/home.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit {
   enquiry: FormGroup;
   contactus: FormGroup;
   sysDetails;
-  constructor(private fb: FormBuilder , private ls: LoginService , private hs: HomeService,
+  constructor(private fb: FormBuilder , private ls: LoginService , private hs: HomeService, private us: UserService,
      private ts: ToastrService, private router: Router) { }
 
   ngOnInit() {
@@ -34,7 +35,7 @@ export class HomeComponent implements OnInit {
         ufeedback: [null, Validators.compose([Validators.required])]
       });
       this.sysDetails = this.ls.getCurrentUser();
-      this.ls.updataLogintime(localStorage.getItem('userDetail')).subscribe();
+      this.ls.updataLogintime(this.us.getLoginUserDetail().uid).subscribe(data => data);
   } else {
     this.router.navigateByUrl('/');
   }
@@ -64,11 +65,11 @@ export class HomeComponent implements OnInit {
   }
 
   enquiryFormSubmit(enquiry) {
-    console.log(enquiry.value);
+    console.log(this.us.getLoginUserDetail().uid);
   }
 
   logoutClick() {
-    localStorage.removeItem('uqueryid');
+    localStorage.removeItem('userDetail');
     this.router.navigateByUrl('/');
   }
 }

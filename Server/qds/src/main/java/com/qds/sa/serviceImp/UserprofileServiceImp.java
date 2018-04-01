@@ -104,7 +104,7 @@ public class UserprofileServiceImp implements UserProfileService{
 
 	@Override
 	public UserProfile findUserProfileByUqueryid(String queryId) {
-		UserProfile userprofile = userprofilerepo.findByUqueryid(queryId);
+		UserProfile userprofile = userprofilerepo.findByUid(queryId);
 		return userprofile;
 	}
 

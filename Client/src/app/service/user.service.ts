@@ -16,6 +16,10 @@ export class UserService {
         this.base_url = global.base_url;
     }
 
+    getLoginUserDetail(){
+        return JSON.parse(localStorage.getItem('userDetail'));
+    }
+
     addUser(user) {
         const url = `${global.base_url}user/adduser`;
         return this.http.post(url, user).map(res => res);

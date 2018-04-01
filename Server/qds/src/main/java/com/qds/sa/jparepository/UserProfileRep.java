@@ -12,6 +12,8 @@ public interface UserProfileRep extends JpaRepository<UserProfile, Long> {
 
 	public UserProfile findByUqueryid(String id);
 	
+	public UserProfile findByUid(String uid);
+	
 	public UserProfile findByUemailid(String emailId);
 	
 	@Query(value = "SELECT s FROM userprofile s WHERE LOWER(s.uemailid) like LOWER(:uemailid) and LOWER(s.umobilenumber) = LOWER(:umobilenumber)", nativeQuery = true)
