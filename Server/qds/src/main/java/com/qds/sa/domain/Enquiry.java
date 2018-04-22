@@ -20,6 +20,7 @@ public class Enquiry {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	private String uid;
 	@Enumerated(EnumType.STRING)
 	private UserServiceConstant servicetype;
 	@Enumerated(EnumType.STRING)
@@ -28,7 +29,7 @@ public class Enquiry {
 	private String ufeedback;
 	private String uipaddress;
 	private String uipcountry;
-	private Date timestamp;
+	private String timestamp;
 	public Long getId() {
 		return id;
 	}
@@ -71,10 +72,16 @@ public class Enquiry {
 	public void setUipcountry(String uipcountry) {
 		this.uipcountry = uipcountry;
 	}
-	public Date getTimestamp() {
+	public String getUid() {
+		return uid;
+	}
+	public void setUid(String uid) {
+		this.uid = uid;
+	}
+	public String getTimestamp() {
 		return timestamp;
 	}
-	public void setTimestamp(Date timestamp) {
+	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
 	}
 	

@@ -1,7 +1,5 @@
 package com.qds.sa.domain;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -26,7 +24,7 @@ public class LoginAccess {
 	private String uipcountry;
 	@Enumerated(EnumType.STRING)
 	private LoginResult uresult;
-	private Date timestamp;
+	private String timestamp;
 	
 	public Long getId() {
 		return id;
@@ -52,12 +50,6 @@ public class LoginAccess {
 	public void setUresult(LoginResult uResult) {
 		this.uresult = uResult;
 	}
-	public Date getTimestamp() {
-		return timestamp;
-	}
-	public void setTimestamp(Date timestamp) {
-		this.timestamp = timestamp;
-	}
 	public String getUipcountry() {
 		return uipcountry;
 	}
@@ -76,7 +68,10 @@ public class LoginAccess {
 	public void setUid(String uid) {
 		this.uid = uid;
 	}
-	
-	
-	
+	public String getTimestamp() {
+		return timestamp;
+	}
+	public void setTimestamp(String timestamp) {
+		this.timestamp = timestamp;
+	}
 }

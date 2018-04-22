@@ -1,5 +1,6 @@
 package com.qds.sa.serviceImp;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -30,13 +31,13 @@ public class RequestAccessServiceImp implements RequestAccessService {
 	
 	@Override
 	public RequestAccess registerUser(RequestAccess requestAccess) {
-		Date date = new Date();
+		 String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 		RequestAccess resAdd = requestAccessRep.save(requestAccess);
 		Long id = resAdd.getId();
 		RequestAccess findUpdate = requestAccessRep.findOne(id);
 		findUpdate.setUid("QDS-" + id);
 		findUpdate.setUrequeststatus(ActiveStatus.INACTIVE);
-		findUpdate.setSentdate(new Date(date.getTime()));
+		findUpdate.setSentdate(timeStamp);
 		if(resAdd != null) {
 			emailService.sendRequestEmail(findUpdate);
 		}

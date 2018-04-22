@@ -3,17 +3,10 @@
         <form class="form-login" [formGroup]="forgotAccess" (ngSubmit)="forgotAccesssSubmit(forgotAccess)">
             <h2 class="form-login-heading" style="background: #27c24c ;">Forgot Useranme / Password</h2>
             <div class="login-wrap">
-                <input type="text" class="form-control" placeholder="Name" autofocus formControlName="uname">
-                <div class="error" *ngIf="forgotAccess.controls['uname'].hasError('required') && forgotAccess.controls['uname'].touched">Name is required</div>
-                <br>
+
                 <input type="email" class="form-control" placeholder="Email ID" formControlName="uemailid">
                 <div class="error" *ngIf="forgotAccess.controls['uemailid'].hasError('required') && forgotAccess.controls['uemailid'].touched">Email id is required</div>
-
-                <br>
-                <input type="text" class="form-control" placeholder="Contact Number" formControlName="umobilenumber">
-                <div class="error" *ngIf="forgotAccess.controls['umobilenumber'].hasError('required') && forgotAccess.controls['umobilenumber'].touched">Mobile Number is required</div>
-                <br>
-                <input type="text" class="form-control" placeholder="Vendor ID (Optional)" formControlName="uid">
+                <div class="error" *ngIf="forgotAccess.controls['uemailid'].hasError('pattern') ">Enter a Valid Email</div>
                 <br>
                 <button class="btn btn-theme btn-block" style="background-color: #27c24c; border-color: #27c24c;" type="submit" [disabled]="!forgotAccess.valid">
           <i class="fa fa-lock"></i> Submit</button>

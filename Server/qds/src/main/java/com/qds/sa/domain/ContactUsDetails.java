@@ -1,6 +1,5 @@
 package com.qds.sa.domain;
 
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +18,7 @@ public class ContactUsDetails {
 	private String umobilenumber;
 	private String urequirement;
 	private String uipaddress;
-	private Date timestamp;
+	private String timestamp;
 	public Long getId() {
 		return id;
 	}
@@ -56,11 +55,10 @@ public class ContactUsDetails {
 	public void setUipaddress(String uipaddress) {
 		this.uipaddress = uipaddress;
 	}
-	public Date getTimestamp() {
+	public String getTimestamp() {
 		return timestamp;
 	}
-	public void setTimestamp(Date timestamp) {
+	public void setTimestamp(String timestamp) {
 		this.timestamp = timestamp;
-	}
-	
+	}	
 }

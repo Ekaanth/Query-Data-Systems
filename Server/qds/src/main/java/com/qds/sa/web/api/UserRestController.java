@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.qds.sa.domain.ForgotAccess;
 import com.qds.sa.domain.UserProfile;
+import com.qds.sa.service.ForgotAccessService;
 import com.qds.sa.service.UserProfileService;
 
 @RestController
@@ -21,6 +23,9 @@ public class UserRestController {
 	
 	@Autowired
 	UserProfileService userProfileService;
+	
+	@Autowired
+	ForgotAccessService forgotAccessService;
 	
 	@RequestMapping(
 	        value = ("/adduser"),
@@ -37,7 +42,43 @@ public class UserRestController {
 			e.printStackTrace();
 			throw new Exception(e.getMessage());
 		}
+	}
+	
+	
+	@RequestMapping(
+	        value = ("/findForgotUserByEmailId"),
+	        method = RequestMethod.POST,
+	        produces = MediaType.APPLICATION_JSON_VALUE )
+	public ResponseEntity<ForgotAccess> findForgotUserByEmailId(@RequestBody String emailId)throws Exception
+	{
+		try {
+			ForgotAccess resp = forgotAccessService.findByUemailid(emailId);
+			return new ResponseEntity<ForgotAccess>(resp, HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new Exception(e.getMessage());
+		}
 		
 	}
 	
+	
+	@RequestMapping(
+	        value = ("/addForgotUser"),
+	        method = RequestMethod.POST,
+	        produces = MediaType.APPLICATION_JSON_VALUE )
+	public ResponseEntity<ForgotAccess> addForgotUser(@RequestBody String emailId)throws Exception
+	{
+		try {
+			ForgotAccess resp = forgotAccessService.findByUemailid_status(emailId);
+			return new ResponseEntity<ForgotAccess>(resp, HttpStatus.OK);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new Exception(e.getMessage());
+		}
+		
+	}
+	
+
 }

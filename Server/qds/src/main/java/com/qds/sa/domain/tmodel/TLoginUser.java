@@ -8,11 +8,12 @@ import com.qds.sa.domain.UserServiceList;
 public class TLoginUser {
 
 	private String uid;
-	private String  uname;
+	private String uname;
 	private String uemailid;
 	private String umobilenumber;
-	private String uprofilestatus;
-	private Date ulastlogin;
+	private String ulastuploded;
+	private String ulastpayment;
+	private String ulastlogin;
 	private ArrayList<UserServiceList> uservice;
 	public String getUid() {
 		return uid;
@@ -38,16 +39,22 @@ public class TLoginUser {
 	public void setUmobilenumber(String umobilenumber) {
 		this.umobilenumber = umobilenumber;
 	}
-	public String getUprofilestatus() {
-		return uprofilestatus;
+	public String getUlastuploded() {
+		return ulastuploded;
 	}
-	public void setUprofilestatus(String uprofilestatus) {
-		this.uprofilestatus = uprofilestatus;
+	public void setUlastuploded(String ulastuploded) {
+		this.ulastuploded = ulastuploded;
 	}
-	public Date getUlastlogin() {
+	public String getUlastpayment() {
+		return ulastpayment;
+	}
+	public void setUlastpayment(String ulastpayment) {
+		this.ulastpayment = ulastpayment;
+	}
+	public String getUlastlogin() {
 		return ulastlogin;
 	}
-	public void setUlastlogin(Date ulastlogin) {
+	public void setUlastlogin(String ulastlogin) {
 		this.ulastlogin = ulastlogin;
 	}
 	public ArrayList<UserServiceList> getUservice() {
@@ -57,5 +64,4 @@ public class TLoginUser {
 		this.uservice = uservice;
 	}
 
-	
 }

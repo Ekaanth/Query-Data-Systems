@@ -16,15 +16,17 @@ export class RequestComponent implements OnInit {
   constructor(private fb: FormBuilder, private ls: LoginService, private toastr: ToastrService) { }
 
   ngOnInit() {
+    let emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+    let mobileNumber = "^[0-9]{10,10}$";
+    let name = "^[A-Za-z]{3,15}$"
     this.requestAccesss = this.fb.group({
-      uname: [null, Validators.compose([Validators.required])],
-      uemailid: [null, Validators.compose([Validators.required])],
-      umobilenumber: [null, Validators.compose([Validators.required])],
+      uname: [null, Validators.compose([Validators.required, Validators.pattern(name)])],
+      uemailid: [null, Validators.compose([Validators.required , Validators.pattern(emailPattern)]) ],
+      umobilenumber: [null, Validators.compose([Validators.required , Validators.pattern(mobileNumber)])],
       uipaddress: [null]
     });
-    this.sysDetails = this.ls.getCurrentUser();
+    this.sysDetails = this.ls.getSystemIp();
   }
-
   requestAccesssSubmit(requestAccesssSubmit) {
     const res = {
       'uname': requestAccesssSubmit.controls.uname.value,

@@ -39,15 +39,15 @@ public class EmailService {
 		
 	}
 		
-	public void sendForgotEmail(ForgotAccess res)throws MailException
+	public void sendForgotEmail(String emailaddress)throws MailException
 	{
 		SimpleMailMessage mail=new SimpleMailMessage();
-		mail.setTo(res.getUemailid());
+		mail.setTo(emailaddress);
 		mail.setFrom("akanth1994@gmail.com");
 		mail.setSubject("Forgot Username / Password");
 		mail.setText("Hello,\n"
-				+ "New User has requested to join \"id\": "+res.getUid()+ "\n" +
-				"Please welcome with a new UserId and Password. "	
+				+ "New User has Forgoton Login details user email is: "+emailaddress+ "\n" +
+				"Please welcome user back with a new UserId and Password. "	
 				+"Click link: http://localhost:4200/admin to on board user. \n"
 				+ "Thanks");
 		javaMailSender.send(mail);

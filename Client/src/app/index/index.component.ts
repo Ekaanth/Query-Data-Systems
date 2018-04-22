@@ -22,7 +22,7 @@ export class IndexComponent implements OnInit {
       upassword: [null,  Validators.compose([Validators.required])]
     });
 
-    this.sysDetails = this.ls.getCurrentUser();
+    this.sysDetails = this.ls.getSystemIp();
   }
 
   userloginSubmit(userlogin) {
@@ -37,11 +37,16 @@ export class IndexComponent implements OnInit {
   }
 
   userlogindetails(data) {
+    if(data._body !== ''){
       this.ts.success('', 'User Login Successfully');
       this.loginErrorBoolean = false;
-      localStorage.setItem('userDetail' , JSON.stringify(data));
+      localStorage.setItem('userDetail' , data._body);
       this.router.navigateByUrl('/home');
-    this.userlogin.enable();
+    }else{
+      this.ts.error('', 'User Login Unsuccessfully');
+      this.userlogin.enable();
+      this.loginErrorBoolean = true;
+    }
   }
  
   loginError(error) {

@@ -16,6 +16,10 @@ export class LoginService {
     }
 
     getCurrentUser(): any {
+      return JSON.parse(localStorage.getItem('userDetail'));
+    }
+
+    getSystemIp():any {
       return JSON.parse(localStorage.getItem('ipDetails'));
     }
 
@@ -23,7 +27,7 @@ export class LoginService {
         const sysDateTime = new Date();
         const fulldatetime = sysDateTime.getTime();
         const url = `${global.base_url}NewsService/getNews?userid=${fulldatetime}&sysdatetime=${fulldatetime}`;
-        return this.http.get(url).map(res => res.json());
+        return this.http.get(url).map(res => res);
       }
 
       saveRole(role) {
@@ -37,28 +41,23 @@ export class LoginService {
         const sysDateTime = new Date();
         const fulldatetime = sysDateTime.getTime();
         const url = `${global.base_url}requestAccess`;
-        return this.http.post(url, access).map((response: Response) => response.json());
+        return this.http.post(url, access).map((response: Response) => response);
       }
 
       forgotAccess(access) {
         const sysDateTime = new Date();
         const fulldatetime = sysDateTime.getTime();
         const url = `${global.base_url}forgotLogin`;
-        return this.http.post(url, access).map((response: Response) => response.json());
+        return this.http.post(url, access).map((response: Response) => response);
       }
 
       userlogin(user) {
         const url = `${global.base_url}userlogin`;
-        return this.http.post(url, user).map((response: Response) => response.json());
+        return this.http.post(url, user).map((response: Response) => response);
       }
 
       userLogindetails(quid) {
         const url = `${global.base_url}findByUqueryId/${quid}`;
-        return this.http.get(url).map(res => res.json());
-      }
-
-      updataLogintime(quid) {
-        const url = `${global.base_url}updateLoginTime/${quid}`;
-        return this.http.get(url).map(res => res.json());
+        return this.http.get(url).map(res => res);
       }
 }

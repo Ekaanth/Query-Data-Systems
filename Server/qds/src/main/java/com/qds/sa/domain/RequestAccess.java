@@ -1,7 +1,5 @@
 package com.qds.sa.domain;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -29,7 +27,7 @@ public class RequestAccess {
 	private ActiveStatus urequeststatus;
 	private String uipaddress;
 	private String uipcountry;
-	private Date sentdate;
+	private String sentdate;
 	public Long getId() {
 		return id;
 	}
@@ -73,17 +71,17 @@ public class RequestAccess {
 	public void setUipaddress(String uipaddress) {
 		this.uipaddress = uipaddress;
 	}
-	public Date getSentdate() {
-		return sentdate;
-	}
-	public void setSentdate(Date sentdate) {
-		this.sentdate = sentdate;
-	}
 	public String getUipcountry() {
 		return uipcountry;
 	}
 	public void setUipcountry(String uipcountry) {
 		this.uipcountry = uipcountry;
+	}
+	public String getSentdate() {
+		return sentdate;
+	}
+	public void setSentdate(String sentdate) {
+		this.sentdate = sentdate;
 	}
 	
 }

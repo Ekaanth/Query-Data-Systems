@@ -1,6 +1,5 @@
 package com.qds.sa.domain;
 
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.qds.sa.util.constant.ActiveStatus;
-import com.qds.sa.util.constant.UserServiceConstant;
 
 @Entity
 @Table(name="userprofile")
@@ -33,9 +31,23 @@ public class UserProfile {
 	private String uservice;
 	@Enumerated(EnumType.STRING)
 	private ActiveStatus uprofilestatus;
-	private Date ustarteddate;
-	private Date userlastlogin;
+	private String ustarteddate;
+	private String userlastlogin;
+	private String ulastfileuplode;
+	private String ulastpayment;
 	
+	public String getUlastfileuplode() {
+		return ulastfileuplode;
+	}
+	public void setUlastfileuplode(String ulastfileuplode) {
+		this.ulastfileuplode = ulastfileuplode;
+	}
+	public String getUlastpayment() {
+		return ulastpayment;
+	}
+	public void setUlastpayment(String ulastpayment) {
+		this.ulastpayment = ulastpayment;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -90,24 +102,22 @@ public class UserProfile {
 	public void setUprofilestatus(ActiveStatus uprofilestatus) {
 		this.uprofilestatus = uprofilestatus;
 	}
-	public Date getUstarteddate() {
-		return ustarteddate;
-	}
-	public void setUstarteddate(Date ustarteddate) {
-		this.ustarteddate = ustarteddate;
-	}
-	public Date getUserlastlogin() {
-		return userlastlogin;
-	}
-	public void setUserlastlogin(Date userlastlogin) {
-		this.userlastlogin = userlastlogin;
-	}
 	public String getUservice() {
 		return uservice;
 	}
 	public void setUservice(String uservice) {
 		this.uservice = uservice;
 	}
-
-	
+	public String getUstarteddate() {
+		return ustarteddate;
+	}
+	public void setUstarteddate(String ustarteddate) {
+		this.ustarteddate = ustarteddate;
+	}
+	public String getUserlastlogin() {
+		return userlastlogin;
+	}
+	public void setUserlastlogin(String userlastlogin) {
+		this.userlastlogin = userlastlogin;
+	}	
 }

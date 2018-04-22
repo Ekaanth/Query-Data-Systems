@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeService } from './service/home.service';
 import { UserService } from './service/user.service';
 import {SelectModule} from 'ng2-select';
+import { FileUploadModule } from 'ng2-file-upload';
+import { AdminService } from './service/admin.service';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import {SelectModule} from 'ng2-select';
   imports: [
     BrowserModule,
     FormsModule,
+    FileUploadModule,
     CommonModule,
     HttpModule,SelectModule,
     ReactiveFormsModule,
@@ -47,7 +50,7 @@ import {SelectModule} from 'ng2-select';
       {path: 'requestaccess', component: RequestComponent}
     ])
   ],
-  providers: [LoginService , HomeService , UserService],
+  providers: [LoginService , HomeService , UserService, AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

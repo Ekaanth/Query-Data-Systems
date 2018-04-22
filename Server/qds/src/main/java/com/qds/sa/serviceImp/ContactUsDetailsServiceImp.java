@@ -1,5 +1,6 @@
 package com.qds.sa.serviceImp;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +21,8 @@ public class ContactUsDetailsServiceImp implements ContactUsDetailsService{
 	
 	@Override
 	public ContactUsDetails saveDetails(ContactUsDetails det) {
-		Date date = new Date();
-		det.setTimestamp(new Date(date.getTime()));
+		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		det.setTimestamp(timeStamp);
 		return contactUsDetailsRep.save(det);
 	}
-
-	
 }

@@ -15,33 +15,31 @@ export class ForgotComponent implements OnInit {
   constructor(private fb: FormBuilder, private ls: LoginService, private toastr: ToastrService) { }
 
   ngOnInit() {
-    this.forgotAccess = this.fb.group({
-      uname: [null, Validators.compose([Validators.required])],
-      uemailid: [null, Validators.compose([Validators.required])],
-      umobilenumber: [null, Validators.compose([Validators.required])],
-      uid: [null],
-      uipaddress: [null]
+    let emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+    this.forgotAccess = this.fb.group({ 
+      uemailid: [null, Validators.compose([Validators.required, Validators.pattern(emailPattern)])]
     });
-    this.sysDetails = this.ls.getCurrentUser();
   }
 
   forgotAccesssSubmit(forgotAccess) {
     const forgot = {
-      'uname': this.forgotAccess.controls.uname.value,
       'uemailid': this.forgotAccess.controls.uemailid.value,
-      'umobilenumber': this.forgotAccess.controls.umobilenumber.value,
-      'uid': this.forgotAccess.controls.uid.value,
-      'uipaddress': this.sysDetails.ip
+      'uipaddress': this.ls.getSystemIp().ip,
+      'uipcountry': this.ls.getSystemIp().country_name
     };
+    console.log(forgot);
+    this.forgotAccess.disable();
     this.ls.forgotAccess(forgot).subscribe(data => this.forgot(data), error => this.error(error));
   }
 
   error(error) {
+    this.forgotAccess.enable();
     this.toastr.error('', 'Could not connect to server');
   }
 
   forgot(data) {
     this.forgotAccess.reset();
+    this.forgotAccess.enable();
     this.toastr.success('', 'Access Request Sent');
   }
 }

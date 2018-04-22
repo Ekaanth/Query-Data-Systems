@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.qds.sa.domain.tmodel.TaddDelService;
 import com.qds.sa.util.constant.ActiveStatus;
 import com.qds.sa.util.constant.UserServiceConstant;
 
@@ -25,9 +26,10 @@ import com.qds.sa.util.constant.UserServiceConstant;
 		private UserServiceConstant uservicetype;
 		@Enumerated(EnumType.STRING)
 		private ActiveStatus uservicestatus;
-		private Date ulastpayment;
-		private Date startdate;
-		private Date enddate;
+		private String ulastpayment;
+		private String ulastuploded;
+		private String startdate;
+		private String enddate;
 		private String filename;
 		public Long getId() {
 			return id;
@@ -53,22 +55,28 @@ import com.qds.sa.util.constant.UserServiceConstant;
 		public void setUservicestatus(ActiveStatus uservicestatus) {
 			this.uservicestatus = uservicestatus;
 		}
-		public Date getUlastpayment() {
+		public String getUlastpayment() {
 			return ulastpayment;
 		}
-		public void setUlastpayment(Date ulastpayment) {
+		public void setUlastpayment(String ulastpayment) {
 			this.ulastpayment = ulastpayment;
 		}
-		public Date getStartdate() {
+		public String getUlastuploded() {
+			return ulastuploded;
+		}
+		public void setUlastuploded(String ulastuploded) {
+			this.ulastuploded = ulastuploded;
+		}
+		public String getStartdate() {
 			return startdate;
 		}
-		public void setStartdate(Date startdate) {
+		public void setStartdate(String startdate) {
 			this.startdate = startdate;
 		}
-		public Date getEnddate() {
+		public String getEnddate() {
 			return enddate;
 		}
-		public void setEnddate(Date enddate) {
+		public void setEnddate(String enddate) {
 			this.enddate = enddate;
 		}
 		public String getFilename() {
@@ -77,5 +85,8 @@ import com.qds.sa.util.constant.UserServiceConstant;
 		public void setFilename(String filename) {
 			this.filename = filename;
 		}
+
+		
+
 		
 }

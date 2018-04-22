@@ -1,5 +1,7 @@
 package com.qds.sa.serviceImp;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.qds.sa.domain.ForgotAccess;
 import com.qds.sa.domain.UserProfile;
+import com.qds.sa.domain.tmodel.TOnboardExistingUser;
 import com.qds.sa.jparepository.ForgotAccessRep;
 import com.qds.sa.jparepository.UserProfileRep;
 import com.qds.sa.service.ForgotAccessService;
@@ -28,14 +31,38 @@ public class ForgotAccessServiceImp implements ForgotAccessService {
 	EmailService emailservice;
 	
 	@Override
-	public ForgotAccess forgotaccess(ForgotAccess fas) {
-		Date date = new Date();
-		UserProfile userprofile = userProfileRep.findByUemailidAndMobilenumber(fas.getUemailid() , fas.getUmobilenumber());
-		fas.setUid(userprofile.getUid());
-		fas.setSentdate(new Date(date.getTime()));
-		fas.setUstatus(ActiveStatus.ACTIVE);
-		ForgotAccess res = forgotAccessRep.save(fas);
-		emailservice.sendForgotEmail(res);
-		return res;
+	public ForgotAccess forgotaccess(ForgotAccess userdetail) {
+		if((forgotAccessRep.findByUemailidAndStatus(userdetail.getUemailid()) == null)) {
+			if(userProfileRep.findByUemailid(userdetail.getUemailid()) != null){
+			String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+			userdetail.setTimestamp(timeStamp);
+			userdetail.setUstatus(ActiveStatus.ACTIVE);
+			forgotAccessRep.save(userdetail);
+			emailservice.sendForgotEmail(userdetail.getUemailid());
+			}
+		}
+		return userdetail;
+	}
+
+	@Override
+	public ArrayList<ForgotAccess> findByUstatus(ActiveStatus status) {
+		return forgotAccessRep.findByUstatus(status);
+	}
+
+	@Override
+	public ForgotAccess findByUemailid_status(String emailId) {
+		return forgotAccessRep.findByUemailid_status("ACTIVE", emailId);
+	}
+
+	@Override
+	public ForgotAccess updateTheStatus(TOnboardExistingUser user) {
+		ForgotAccess userUpdate = forgotAccessRep.findByUemailid(user.getUemailid());
+		userUpdate.setUstatus(ActiveStatus.INACTIVE);
+		return forgotAccessRep.save(userUpdate);
+	}
+
+	@Override
+	public ForgotAccess findByUemailid(String emailId) {
+		return forgotAccessRep.findByUemailid(emailId);
 	}
 }

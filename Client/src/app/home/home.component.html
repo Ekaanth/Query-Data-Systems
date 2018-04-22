@@ -29,22 +29,27 @@ TOP BAR CONTENT & NOTIFICATIONS
 
                         <br>
                         <div class="col-md-3">
-                            <h4 class="pull-left" style="color: #000;">Welcome , <b>Rajesh Sharma</b></h4>
+                            <h4 class="pull-left" style="color: #000;">Welcome , <b>{{username | titlecase}}</b></h4>
                         </div>
                         <div class="col-md-4">
-                            <select class="form-control">
-        <option value="">Please Select Service Type</option>
-          <option value="dataSupport">Data Support</option>
-          <option value="mis">MIS</option>
-          <option value="analytics">Analytics</option>
-          <option value="marketResearch">Market Research</option>
-      </select>
+                            <select class="form-control" [(ngModel)]="serviceType" (change)="serviceTypeChanged($event)">
+                                <option value="dataSupport">Data Support</option>
+                                <option value="mis">MIS</option>
+                                <option value="analytics">Analytics</option>
+                                <option value="analytics">Market Research</option>
+                            </select>
                         </div>
                         <div class="col-md-5">
                             <ul class="nav top-menu">
-                                <li style="margin-right: 15px; color: #000; font-size: 12px;">Last Login: DD/MM/YYYY</li>
-                                <li style="margin-right: 15px; color: #000; font-size: 12px;">Last Data Upload: DD/MM/YY</li>
-                                <li style="margin-right: 15px; color: #000; font-size: 12px;">Last Payment: DD/MM/YY</li>
+                                <li style="margin-right: 15px; color: #000; font-size: 12px;" *ngIf="ulastUpload !== null">
+                                    <h4>Last Data Upload: {{ulastUpload}}</h4>
+                                </li>
+                                <li style="margin-right: 15px; color: #000; font-size: 12px;" *ngIf="uLastPayment !== null">
+                                    <h4>Last Payment: {{uLastPayment}}</h4>
+                                </li>
+                                <li style="margin-right: 15px; color: #000; font-size: 12px;">
+                                    <h4> Last Login: {{uLastlogin}}</h4>
+                                </li>
                             </ul>
                         </div>
                         <br>
@@ -460,13 +465,43 @@ TOP BAR CONTENT & NOTIFICATIONS
                                     <span class="dcjq-icon"></span></a>
                                 <ul class="sub" style="display: none;">
                                     <li style="background: #fff;">
-                                        <form class="form-login" style="margin: 30px auto 0; border: 1px solid #607D8B;">
+                                        <form class="form-login" [formGroup]="uploadform" (ngSubmit)="uploadSubmit()" style="margin: 30px auto 0; border: 1px solid #607D8B;">
                                             <!-- <h2 class="form-login-heading" style="background: #27c24c ;">login</h2> -->
                                             <div class="login-wrap">
-                                                <input type="file" class="form-control" name="file" multiple>
-                                                <label style="color:#000;font-weight: 700;">Choose only file like - csv</label>
+                                                <select class="form-control" formControlName="type">
+                                                    <option value="sales" selected>Sales</option>
+                                                    <option value="purchase">Purchase</option>
+                                                    <option value="inventry">Inventry</option>
+                                                </select>
                                                 <br>
-                                                <button class="btn btn-theme btn-block" style="background-color: #27c24c; border-color: #27c24c;" type="submit">Upload Data</button>
+                                                <input type="file" ng2FileSelect accept=".csv" [uploader]="uploader" multiple /><br/>
+                                                <label style="color:#000;font-weight: 700;">Choose only file like - csv</label>
+                                                <label style="color:#000;font-weight: 700;">(Max. 10 files)</label>
+                                                <br>
+                                                <table class="table table-sm table-responsive table-hover" style="color: #000">
+                                                    <thead>
+                                                        <tr>
+                                                            <th width="90%">
+                                                                File Name
+                                                            </th>
+                                                            <th width="10%">
+                                                                Remove
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let item of uploader.queue">
+                                                            <th width="90%">
+                                                                {{ item.file.name}}
+                                                            </th>
+                                                            <th class="text-center" width="10%">
+                                                                <i class="glyphicon glyphicon-remove pointer" (click)="item.remove()"></i>
+                                                            </th>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <br>
+                                                <button class="btn btn-theme btn-block" style="background-color: #27c24c; border-color: #27c24c;" [disabled]="!uploadform.valid" type="submit">Upload Data</button>
                                             </div>
                                         </form>
                                     </li>
@@ -483,11 +518,11 @@ TOP BAR CONTENT & NOTIFICATIONS
                                         <form class="form-login" style="margin: 30px auto 0; border: 1px solid #607D8B;">
                                             <!-- <h2 class="form-login-heading" style="background: #27c24c ;">login</h2> -->
                                             <div class="login-wrap">
-                                                <button class="btn btn-theme btn-block" style="background-color: #27c24c; border-color: #27c24c;" type="submit">Download General Data</button>
+                                                <button class="btn btn-theme btn-block" style="background-color: #27c24c; border-color: #27c24c;" type="submit" (click)="downloadZipFile()">Download General Data</button>
                                             </div>
-                                            <div class="login-wrap">
+                                            <!-- <div class="login-wrap">
                                                 <button class="btn btn-theme btn-block" style="background-color: #27c24c; border-color: #27c24c;" type="submit">Download Specific Data</button>
-                                            </div>
+                                            </div> -->
                                         </form>
                                     </li>
                                 </ul>
@@ -499,7 +534,36 @@ TOP BAR CONTENT & NOTIFICATIONS
                                     <span class="dcjq-icon"></span></a>
                                 <ul class="sub" style="display: none;">
                                     <li style="background: #fff;">
-                                        <form class="form-login" style="margin: 30px auto 0; border: 1px solid #607D8B;">
+                                        <form class="form-login" [formGroup]="payuform" (ngSubmit)="payuformSubmit(payuform)" style="margin: 30px auto 0; border: 1px solid #607D8B;">
+                                            <div class="login-wrap">
+                                                <select class="form-control" formControlName="productinfo">
+                                                <option value="dataSupport">Data Support</option>
+                                                <option value="mis">MIS</option>
+                                                <option value="analytics">Analytics</option>
+                                                <option value="marketResearch">Market Research</option>
+                                            </select>
+                                                <br>
+                                                <!-- <input type="hidden" name="key" value="BoSpd5QD" />
+                                            <input type="hidden" name="hash_string" value="" />
+                                            <input type="hidden" name="hash" />
+                                            <input type="hidden" name="txnid" /> -->
+                                                <input type="text" name="uname" class="form-control" placeholder="Enter amount" formControlName="amount">
+                                                <div class="error" *ngIf="payuform.controls['amount'].hasError('required') && payuform.controls['amount'].touched"> Amount is required</div>
+                                                <br>
+                                                <input type="text" name="uname" class="form-control" placeholder="Enter first name" formControlName="firstname">
+                                                <div class="error" *ngIf="payuform.controls['firstname'].hasError('required') && payuform.controls['firstname'].touched"> Firstname is required</div>
+                                                <br>
+                                                <input type="text" name="uname" class="form-control" placeholder="Enter email" formControlName="email">
+                                                <div class="error" *ngIf="payuform.controls['email'].hasError('required') && payuform.controls['email'].touched"> Email is required</div>
+                                                <br>
+                                                <input type="text" name="uname" class="form-control" placeholder="Enter phonenumber" formControlName="phone">
+                                                <div class="error" *ngIf="payuform.controls['phone'].hasError('required') && payuform.controls['phone'].touched"> PhoneNumber is required</div>
+                                                <br>
+                                                <button class="btn btn-theme btn-block" style="background-color: #27c24c; border-color: #27c24c;" [disabled]="!payuform.valid" type="submit">Make Payment</button>
+                                            </div>
+                                        </form>
+
+                                        <!-- <form class="form-login" style="margin: 30px auto 0; border: 1px solid #607D8B;">
                                             <div class="login-wrap">
                                                 <select class="form-control">
                                                   <option value="volvo">Please Select Service </option>
@@ -511,7 +575,7 @@ TOP BAR CONTENT & NOTIFICATIONS
                                                 <br>
                                                 <button class="btn btn-theme btn-block" style="background-color: #27c24c; border-color: #27c24c;" type="submit">Make Payment</button>
                                             </div>
-                                        </form>
+                                        </form> -->
                                     </li>
                                 </ul>
                             </li>

@@ -64,8 +64,8 @@ public class LoginRestController {
 	@CrossOrigin(origins= "http://localhost:4200/forgot")
 	public ResponseEntity<ForgotAccess> forgotLogin(@RequestBody ForgotAccess requestAccess)
 	{
-		 ForgotAccess res = forgotAccessService.forgotaccess(requestAccess);
-		 return new ResponseEntity<ForgotAccess>(res , HttpStatus.OK);
+		 forgotAccessService.forgotaccess(requestAccess);
+		 return new ResponseEntity<ForgotAccess>(HttpStatus.OK);
 	}
 	
 	@RequestMapping(
@@ -82,25 +82,12 @@ public class LoginRestController {
 	@RequestMapping(
 	        value = ("/findByUqueryId/{id}"),
 	        method = RequestMethod.GET,
-	        consumes = MediaType.APPLICATION_JSON_VALUE,
 	        produces = MediaType.APPLICATION_JSON_VALUE )
 	@CrossOrigin(origins= "http://localhost:4200/")
 	public ResponseEntity<UserProfile> userlogin(@PathVariable("id") String uqueryid)
 	{
 		UserProfile res = userProfileService.findUserProfileByUqueryid(uqueryid);
 		 return new ResponseEntity<UserProfile>(HttpStatus.OK);
-	}
-	
-	@RequestMapping(
-	        value = ("/updateLoginTime?uid="),
-	        method = RequestMethod.GET,
-	        consumes = MediaType.APPLICATION_JSON_VALUE,
-	        produces = MediaType.APPLICATION_JSON_VALUE )
-	@CrossOrigin(origins= "http://localhost:4200/")
-	public ResponseEntity<UserProfile> updateLoginTime(@PathVariable("uid") String uqueryid)
-	{
-		UserProfile res = userProfileService.updateLogintime(uqueryid);
-		 return new ResponseEntity<UserProfile>( HttpStatus.OK);
 	}
 	
 }

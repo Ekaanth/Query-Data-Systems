@@ -1,6 +1,7 @@
 package com.qds.sa.serviceImp;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -21,6 +22,7 @@ import com.qds.sa.jparepository.LoginAccessRep;
 import com.qds.sa.service.LoginAccessService;
 import com.qds.sa.service.UserProfileService;
 import com.qds.sa.service.UserServiceListService;
+import com.qds.sa.util.constant.ActiveStatus;
 import com.qds.sa.util.constant.LoginResult;
 
 @Service
@@ -39,37 +41,43 @@ public class LoginAccessServiceImp implements LoginAccessService{
 	@Autowired
 	UserServiceListService userServiceListService;
 	
-	Date date = new Date();
-	
-	
 	public TLoginUser addLoginDetails(LoginAccess details) {
-		details.setTimestamp(new Date(date.getTime()));
-		UserProfile userlogin = checkUserDetails(details);
-		if(userlogin != null ){
-			details.setUresult(LoginResult.SUCCESS);
-			TLoginUser responseModel = new TLoginUser();
-			responseModel.setUid(userlogin.getUid());
-			responseModel.setUname(userlogin.getUname());
-			responseModel.setUemailid(userlogin.getUemailid());
-			responseModel.setUmobilenumber(userlogin.getUmobilenumber());
-			ArrayList<UserServiceList> usersericelist = new ArrayList<UserServiceList>();
-			ArrayList<UserServiceList> userServiceList = userServiceListService.findByUid(userlogin.getUid());
-			loginAccessRep.save(details);
+		 String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+		details.setTimestamp(timeStamp);
+		TLoginUser responseModel = new TLoginUser();
+		Boolean flag;
+		UserProfile userdetails = userProfileService.findUserProfileByUqueryid(details.getUqueryid());
+		if( userdetails != null) {
+			if(userdetails.getUpassword().equals(details.getUpassword()) && userdetails.getUqueryid().equalsIgnoreCase(details.getUqueryid()) && userdetails.getUprofilestatus().equals(ActiveStatus.ACTIVE)) {
+				details.setUresult(LoginResult.SUCCESS);
+				loginAccessRep.save(details);
+				responseModel.setUid(userdetails.getUid());
+				responseModel.setUname(userdetails.getUname());
+				responseModel.setUemailid(userdetails.getUemailid());
+				responseModel.setUmobilenumber(userdetails.getUmobilenumber());
+				responseModel.setUlastlogin(timeStamp);
+				responseModel.setUlastuploded(userdetails.getUlastfileuplode());
+				responseModel.setUlastpayment(userdetails.getUlastpayment());
+				UserProfile userprofile = userProfileService.findUserProfileByUqueryid(userdetails.getUqueryid());
+				userprofile.setUserlastlogin(timeStamp);
+				userProfileService.saveUser(userprofile);
+				ArrayList<UserServiceList> userServiceList = userServiceListService.findByUid(userdetails.getUid());
+				responseModel.setUservice(userServiceList);
+				flag= true;
+			}else {
+				flag = false;
+			}
+		}else {
+			flag = false;
+		}
+		
+		if(flag == true) {
 			return responseModel;
-			
 		}else {
 			details.setUresult(LoginResult.FAILED);
 			loginAccessRep.save(details);
 			return null;
 		}
-		
 	}
-
-
-	private UserProfile checkUserDetails(LoginAccess details) {
-			
-		return userProfileService.findUserProfile(details.getUqueryid() , details.getUpassword());
-	}
-	
-
 }
+	
